@@ -6,7 +6,7 @@ body{
     height: 100vh;
     overflow: hidden;
 }
-.center{
+.center1{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,12 +15,31 @@ body{
     background: white;
     border-radius: 10px;
 }
-.center h1{
+.center1 h1{
     text-align: center;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 }
-.center form{
+.center1 form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+.center2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: white;
+    border-radius: 10px;
+}
+.center2 h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+.center2 form{
     padding: 0 40px;
     box-sizing: border-box;
 }
@@ -103,4 +122,21 @@ input[type="submit"]:hover{
 }
 .signup_link a:hover{
     text-decoration: underline;
+}
+.login_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+.login_link a{
+    color: #2691d9;
+    text-decoration: none;
+}
+.login_link a:hover{
+    text-decoration: underline;
+}
+p{
+    color:#a6a6a6;
+    padding: 10px 50px 0 50px;
 }
