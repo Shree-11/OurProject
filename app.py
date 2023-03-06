@@ -18,7 +18,7 @@ def home():
 
     #pickle.dump(model,open("model1.pkl","wb"))
     
-    return flask.render_template('home.html')
+    return flask.render_template('/home.html')
 
 @app.route('/predict',methods = ['GET','POST'])
 def predict():

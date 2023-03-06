@@ -40,7 +40,7 @@
                 </div>
                 <div class="pass">Forgot Password?</div>
             <div class="login-container">
-            <a href="fetch_image.php" class="login-button">Login</a>
+            <a href="home.html" class="login-button">Login</a>
             </div>
                 
                 <div class="signup_link">
