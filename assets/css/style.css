@@ -1788,3 +1788,18 @@ section {
   color: #fff;
   text-decoration: none;
 }
+.login-button {
+  background-color: #007bff; /* blue color */
+  color: #fff; /* text color */
+  border-radius: 20px; /* rounded edges */
+  padding: 10px 20px; /* button padding */
+  border: none; /* remove button border */
+  cursor: pointer; /* add pointer cursor */
+}
+
+.login-button:hover {
+  background-color: #0069d9; /* darker blue color on hover */
+}
+.login-container {
+  text-align: center; /* center align the button */
+}
