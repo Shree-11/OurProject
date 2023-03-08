@@ -27,11 +27,12 @@ def predict():
     path = os.path.join('u_input',path)
     
     class_names = class_names = {
-        0:'Arson',
-        1:'Burglary',
-        2:'Explosion',
-        3:'Fighting',
-        4:'Normal'
+        0:'F',
+        1:'M',
+        2:'N',
+        3:'Q',
+        4:'S',
+        5:'V'
     }
     #model = pickle.load(open("model1.pkl","rb"))
 
