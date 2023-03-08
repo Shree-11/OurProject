@@ -42,6 +42,9 @@
             <li>
                 <a href="#projects">Test Area</a>
             </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
         </ul>
     </header>
     <!-- End header -->
@@ -85,44 +88,38 @@
     <!-- End #about -->
 
 
-
-
     <div id="projects" class="background-alt">
-        <h2 class="heading">Test Your Video</h2>
-        <div class="container">
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="{{ url_for('static', filename='images/upload.png')}}" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <form action="{{ url_for('predict') }}" method="POST">
-                            <label class="file-upload" for="file">
-                                <span>Filename:</span>
-                                <input type="file" name="file" id="file" accept="video/*" required/>
-                            </label>
-                            <br /><br />
-
-                            <input class="btn-rounded-white" type="submit" name="submit" value="Submit" />
-                        </form>
-                        <h1>
-                            Result: {{ result }}
-                        </h1>
-
-
-                        <!-- <a href="#">View Project</a>
-                    </div> -->
-                        <!-- End .project-info -->
-                    </div>
-                    <!-- End .project -->
-
-
-                </div>
-            </div>
+    <h2 class="heading">Test Your ECG</h2>
+    <div class="container">
+    <div class="row">
+        <div class="project shadow-large">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/img1.webp')}}" style="width:100%"/> <!-- End .project-image -->
         </div>
-        <!-- End #projects -->
+        <div class="col-md-6" style="padding-top: 30px">
+            
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <label class="file-upload" for="file">
+                        <span>Image:</span>
+                        <input type="file" name="file" id="file" accept="image/png" required/>
+                    </label>
+                    <br /><br />
 
+                    <input class="btn-rounded-white" type="submit" name="submit" value="Submit" />
+                </form>
+                <h1>
+                    Result: {{ result }}
+                </h1>
+
+
+                <!-- <a href="#">View Project</a>
+            </div> -->
+        
+            <!-- End .project -->
+        </div>
+        </div>
+    </div>
+</div>
 
         <div id="skills">
             <h2 class="heading">Heart Abnormality Catagories</h2>
@@ -140,6 +137,7 @@
             <i class="fa fa-chevron-up" aria-hidden="true"></i>
         </span>
     </div>
+
 
     <!-- End #skills -->
 
