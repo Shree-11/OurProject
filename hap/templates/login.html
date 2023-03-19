@@ -19,15 +19,34 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
       
-          <button type="submit">Login</button>
-          <label>
+          <button type="submit" onclick="submitForm('action1','main')">Login</button>
+          <!-- <label>
             <span>Forgot <a href="#">password?</a></span>
-          </label>
+          </label> -->
         </div>
       
         <div class="container" style="background-color:#f1f1f1">
             <center>
-          <span>Not a member? <a href="signup.html">create account</a></span>
+          <span>Not a member? <a href="#" onclick="submitForm('action2','signup')">create account</a></span>
+          <script>
+            function submitForm(action,target) {
+              var form = document.createElement("form");
+              form.setAttribute("method", "post");
+              if(target === 'main') {
+              form.setAttribute("action", "{{ url_for('main') }}");
+              } else if(target === 'signup') {
+              form.setAttribute("action", "{{ url_for('signup') }}");
+              }
+              var hiddenField = document.createElement("input");
+              hiddenField.setAttribute("type", "hidden");
+              hiddenField.setAttribute("name", "action");
+              hiddenField.setAttribute("value", action);
+              form.appendChild(hiddenField);
+              document.body.appendChild(form);
+              form.submit();
+            }
+           
+            </script>
         </center>
         </div>
       </form> 

@@ -20,6 +20,18 @@ def home():
     
     return flask.render_template('home.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return flask.render_template('login.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    return flask.render_template('signup.html')
+
+@app.route('/main', methods=['GET', 'POST'])
+def main():
+    return flask.render_template('main.html')
+
 @app.route('/predict',methods = ['GET','POST'])
 def predict():
     file = request.form['file']
