@@ -25,11 +25,25 @@
               <label for="psw-repeat"><b>Confirm Password</b></label>
               <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
               
-              <button type="submit" >Sign Up</button>
+              <button type="submit" onclick="submitForm('login')">Sign Up</button>
             </div>
               <div class="container" style="background-color:#f1f1f1">
                 <center>
-              <span>Already have an account? <a href="login.html" style="color:dodgerblue">Login</a></span>
+              <span>Already have an account? <a href="#" onclick="submitForm('login')" style="color:dodgerblue">Login</a></span>
+              <script>
+                function submitForm(action) {
+                  var form = document.createElement("form");
+                  form.setAttribute("method", "post");
+                  form.setAttribute("action", "{{ url_for('login') }}");
+                  var hiddenField = document.createElement("input");
+                  hiddenField.setAttribute("type", "hidden");
+                  hiddenField.setAttribute("name", "action");
+                  hiddenField.setAttribute("value", action);
+                  form.appendChild(hiddenField);
+                  document.body.appendChild(form);
+                  form.submit();
+                }
+                </script>
             </center>
             </div>
            
