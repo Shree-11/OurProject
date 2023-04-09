@@ -32,6 +32,10 @@ def signup():
 def main():
     return flask.render_template('main.html')
 
+@app.route('/forgotpassword', methods=['GET', 'POST'])
+def forgotpassword():
+    return flask.render_template('forgotpassword.html')
+
 @app.route('/predict',methods = ['GET','POST'])
 def predict():
     file = request.form['file']
