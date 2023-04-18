@@ -4,49 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
+    <title>User registration form</title>
     <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
     
     <div style="margin:7% 30%">
-        <form action="" method="post">
-              <h1 style="text-align: center;">Sign Up</h1>
+        <form action="{{ url_for('signup') }}" method="post">
+              <h1 style="text-align: center;">User Registration</h1>
               <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <label for="name"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="name" required>
 
               <label for="email"><b>Email</b></label>
               <input type="text" placeholder="Enter Email" name="email" required>
           
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-          
-              <label for="psw-repeat"><b>Confirm Password</b></label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+              <label for="pwd"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="pwd" required>
               
-              <button type="submit" onclick="submitForm('login')">Sign Up</button>
+              <button type="submit">Sign Up</button>
             </div>
               <div class="container" style="background-color:#f1f1f1">
                 <center>
-              <span>Already have an account? <a href="#" onclick="submitForm('login')" style="color:dodgerblue">Login</a></span>
-              <script>
-                function submitForm(action) {
-                  var form = document.createElement("form");
-                  form.setAttribute("method", "post");
-                  form.setAttribute("action", "{{ url_for('login') }}");
-                  var hiddenField = document.createElement("input");
-                  hiddenField.setAttribute("type", "hidden");
-                  hiddenField.setAttribute("name", "action");
-                  hiddenField.setAttribute("value", action);
-                  form.appendChild(hiddenField);
-                  document.body.appendChild(form);
-                  form.submit();
-                }
-                </script>
+              <span>Already have an account? <a href="{{url_for('login')}}" style="color:dodgerblue">Login</a></span>
             </center>
-            </div>
-           
+            </div>          
           </form>
     </div> 
 </body>

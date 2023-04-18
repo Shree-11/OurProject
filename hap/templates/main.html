@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HEART ABNORMALITY DETECTION</title>
+    <title>Main page</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='lead-bg.jpg')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome/css/font-awesome.min.css')}}">
@@ -19,11 +19,20 @@
     <div class="container">
         <div class="heading container" style="text-align: center;"><h2>Test Your ECG</h2></div>
         
-    <div class="row">
+    
         <div class="project shadow-large">
+            <div class="row">
+                <div class="col-md-6"><h2>Welcome ...</h2> </div>
+                <div class="col-md-6"> Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a> </div>
+            </div>
+            <div class="row">
         <div class="col-md-6">
             <img src="{{ url_for('static', filename='images/img1.webp')}}" style="width:100%"/> <!-- End .project-image -->
         </div>
+        
+        
+        <br><br>
+        
         <div class="col-md-6" style="padding-top: 30px">
             
                 <form action="{{ url_for('predict') }}" method="POST">

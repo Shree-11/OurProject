@@ -14,30 +14,14 @@
 </head>
 
 <body>
-    <header>
-        <script>
-            function submitForm(action) {
-              var form = document.createElement("form");
-              form.setAttribute("method", "post");
-              form.setAttribute("action", "{{ url_for('login') }}");
-              var hiddenField = document.createElement("input");
-              hiddenField.setAttribute("type", "hidden");
-              hiddenField.setAttribute("name", "action");
-              hiddenField.setAttribute("value", action);
-              form.appendChild(hiddenField);
-              document.body.appendChild(form);
-              form.submit();
-            }
-            </script>
-    </header>
-    <!-- End header -->
+
 
     <div id="lead">
         <div id="lead-content">
             <h1>HEART ABNORMALITY DETECTION</h1>
             <h2>USING MACHINE LEARNING TECHNIQUES</h2>
 
-            <a href="#projects" onclick="submitForm('login')" class="btn btn-rounded-white">Login</a>
+            <a href="{{url_for('login') }}"  class="btn btn-rounded-white">Login</a>
         </div>
         <!-- End #lead-content -->
 
