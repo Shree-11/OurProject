@@ -1,65 +1,44 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HEART ABNORMALITY DETECTION</title>
-    <link
-      rel="shortcut icon"
-      href="{{ url_for('static', filename='lead-bg.jpg')}}"
-      type="image/x-icon"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='libs/font-awesome/css/font-awesome.min.css')}}"
-    />
-    <link
-      href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='css/styles.css')}}"
-      rel="stylesheet"
-    />
-  </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='lead-bg.jpg')}}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome/css/font-awesome.min.css')}}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+</head>
 
   <body>
     <div class="container">
-      <div class="heading container" style="text-align: center">
-        <h2>Test Your ECG</h2>
-      </div>
-
-      <div class="row">
+        <div class="heading container" style="text-align: center;"><h2>Test Your ECG</h2></div>
+        
+    
         <div class="project shadow-large">
-          <div class="col-md-6">
-            <img
-              src="{{ url_for('static', filename='images/img1.webp')}}"
-              style="width: 100%"
-            />
-            <!-- End .project-image -->
-          </div>
-          <div class="col-md-6" style="padding-top: 30px">
-            <form
-              action="{{ url_for('predict') }}"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <label class="file-upload" for="file">
-                <span>Image:</span>
-                <input
-                  type="file"
-                  name="file"
-                  id="file"
-                  accept="image/png"
-                  required
-                />
-              </label>
-              <br /><br />
+            <div class="row">
+                <div class="col-md-6"><h2>Welcome ...</h2> </div>
+                <div class="col-md-6"> Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a> </div>
+            </div>
+            <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/img1.webp')}}" style="width:100%"/> <!-- End .project-image -->
+        </div>
+        
+        
+        <br><br>
+        
+        <div class="col-md-6" style="padding-top: 30px">
+            
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <label class="file-upload" for="file">
+                        <span>Image:</span>
+                        <input type="file" name="file" id="file" accept="image/png" required/>
+                    </label>
+                    <br /><br />
 
               <input
                 class="btn-rounded-white"
@@ -77,6 +56,32 @@
         </div>
       </div>
     </div>
+
+</div>
+
+<div id="skills" class="background-alt">
+    <h2 class="heading">Heart Abnormality Catagories</h2>
+    <ul>
+        <li><a href="#fusion">F: Fusion of Ventricular and Normal Beat</a></li>
+        <li><a href="#fusion">M: Missing Beat</a></li>
+        <li><a href="#fusion">N: Normal</a></li>
+        <li><a href="#fusion">Q: Unclassifiable</a></li>
+        <li><a href="#fusion">S: Supraventricular Premature Beat</a></li>
+        <li><a href="#fusion">V: Premature Ventricular Contraction</a></li>
+    </ul>
+</div>
+<!-- <div class="col-sm-2 top"> -->
+<!-- <span id="to-top">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</span> -->
+<div id="fusion">
+   <p><em><h2> F: Fusion of Ventricular and Normal Beat </h2></em> The heart beats in a specific pattern controlled by electrical signals. When there is a problem with the heart's electrical signals, it can cause an irregular heartbeat. In the case of a fusion of ventricular and normal beats, it means that there is a mix-up of the electrical signals from the upper and lower chambers of the heart. This can cause the heart to beat too fast or in an irregular way. This condition can lead to symptoms like feeling your heart racing, feeling dizzy or short of breath.</p>
+   <p><em><h2> M: Missing Beat</h2></em> A missing beat, also known as a "dropped beat" or "skipped beat," refers to a type of cardiac arrhythmia characterized by the intermittent delay or absence of a heartbeat. This occurs when the electrical signals that regulate the heart's rhythm are disrupted, causing the heart to momentarily stop before resuming its regular rhythm. Although a missing beat may be harmless and may not require any treatment, it can also be an indication of an underlying heart condition. Some individuals may experience a fluttering or thumping sensation in their chest, while others may not notice any symptoms at all. It is recommended to consult a doctor if one experiences this regularly or has other concerning symptoms.</p>
+   <p><em><h2> N: Normal</h2></em> A normal heartbeat rhythm and provides an efficient blood-pumping function to the body.</p>
+   <p><em><h2> Q: Unclassifiable</h2></em> electrocardiogram (ECG) reading is unclear,further evaluation  needed to ensure proper diagnosis</p>
+   <p><em><h2> S: Supraventricular Premature Beat</h2></em> If you experience frequent or persistent SPBs you should consult doctor, Because It may be the indication of atrial fibrillation(poor blood flow) or atrial flutter.</p>
+   <p><em><h2> V: Premature Ventricular Contaction</h2></em> They are common and can be caused by a variety of factors, including stress, caffeine, alcohol, and certain medications. In most cases, PVCs are benign and do not require treatment. However, in some cases they can be a sign of an underlying heart condition, such as heart disease or heart failure, and may require further evaluation and treatment.</p>
+</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.min.js')}}"></script>

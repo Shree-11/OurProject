@@ -877,3 +877,22 @@ footer {
         padding: 5px 10px
     }
 }
+
+.card {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #333;
+  }
+    

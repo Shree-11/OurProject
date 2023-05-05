@@ -4,51 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>User login form</title>
     <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
     
     <div style="margin:10% 30%">
-    <form action="" method="post">
-          <h1 style="text-align: center;">Login</h1>
+    <form action="{{ url_for('login') }}" method="post">
+          <h1 style="text-align: center;">User Login</h1>
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter User Email" name="email" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-      
-          <button type="submit" onclick="submitForm('action1','main')">Login</button>
-          <label>
-            <span>Forgot <a href="#" onclick="submitForm('action2','forgotpassword')">password?</a></span>
-          </label>
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+          <button type="submit">Login</button>  
         </div>
-      
+        {% if message %}
+        <div class="container">
+            <p style="color: red;">{{ message }}</p>
+        </div>
+        {% endif %}
         <div class="container" style="background-color:#f1f1f1">
-          <span>Not a member? <a href="#" onclick="submitForm('action3','signup')">create account</a></span>
+          <span>Not a member? <a href="{{url_for('signup')}}">create account</a></span>
         </div>
-        <script>
-          function submitForm(action,target) {
-              var form = document.createElement("form");
-              form.setAttribute("method", "post");
-              if(target === 'main') {
-              form.setAttribute("action", "{{ url_for('main') }}");
-              } else if(target === 'signup') {
-              form.setAttribute("action", "{{ url_for('signup') }}");
-              } else if(target === 'forgotpassword') {
-              form.setAttribute("action", "{{ url_for('forgotpassword') }}");
-              }
-              var hiddenField = document.createElement("input");
-              hiddenField.setAttribute("type", "hidden");
-              hiddenField.setAttribute("name", "action");
-              hiddenField.setAttribute("value", action);
-              form.appendChild(hiddenField);
-              document.body.appendChild(form);
-              form.submit();
-            }
-          </script>
+      
       </form> 
     </div> 
+     
+    {% if message %}
+    <script>
+        const popupMessage = document.getElementById('popup-message');
+        popupMessage.innerText = '{{ message }}';
+        popupMessage.style.display = 'block';
+    </script>
+    {% endif %}
 </body>
 </html>
