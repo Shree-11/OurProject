@@ -20,11 +20,24 @@
           <input type="password" placeholder="Enter Password" name="password" required>
           <button type="submit">Login</button>  
         </div>
-      
+        {% if message %}
+        <div class="container">
+            <p style="color: red;">{{ message }}</p>
+        </div>
+        {% endif %}
         <div class="container" style="background-color:#f1f1f1">
           <span>Not a member? <a href="{{url_for('signup')}}">create account</a></span>
         </div>
+      
       </form> 
     </div> 
+     
+    {% if message %}
+    <script>
+        const popupMessage = document.getElementById('popup-message');
+        popupMessage.innerText = '{{ message }}';
+        popupMessage.style.display = 'block';
+    </script>
+    {% endif %}
 </body>
 </html>
