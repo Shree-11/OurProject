@@ -33,7 +33,7 @@
         
         <div class="col-md-6" style="padding-top: 30px">
             
-                <form action="{{ url_for('predict') }}" method="POST">
+                <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
                     <label class="file-upload" for="file">
                         <span>Image:</span>
                         <input type="file" name="file" id="file" accept="image/png" required/>

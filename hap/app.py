@@ -103,11 +103,12 @@ def predict():
         5:'V'
     }
     if request.method == 'POST':
-
+        # breakpoint()
         file = request.files['file']
     
     # Preprocess the image using your preprocess_image function
         img = preprocess_image(file)
+        
 
     # Load the trained model
         model = load_model('best_model.h5')
