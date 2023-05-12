@@ -16,11 +16,9 @@
   <body>
     <div class="container">
         <div class="heading container" style="text-align: center;"><h2>Test Your ECG</h2></div>
-        
-    
         <div class="project shadow-large">
             <div class="row">
-                <div class="col-md-6"><h2>Welcome ...</h2> </div>
+                <div class="col-md-6"><h1>WELCOME</h1> </div>
                 <div class="col-md-6"> Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a> </div>
             </div>
             <div class="row">
@@ -47,12 +45,42 @@
                 value="Submit"
               />
             </form>
-            <h1>
-              {% if class_label %}
-              <p>Predicted class label: {{ class_label }}</p>
-              {% endif %}
-            </h1>
+            
           </div>
+        </div>
+        <div style="text-align: center;">
+          <h1>
+            {% if class_label %}
+            <p>Predicted class label: {{ class_label }}</p>
+            {% endif %}
+          </h1>
+          <p>
+            {% if class_label == 'S' %}
+            <p>
+              Supraventricular premature beats (SVPBs) are extra heartbeats that start in the upper chambers of the heart (atria) and occur earlier than expected. They can feel like a flutter or a skipped beat. SVPBs are usually harmless and common in healthy individuals. However, in some cases, they can cause symptoms such as palpitations, dizziness, or shortness of breath. If you experience any concerning symptoms or have underlying heart conditions, it's best to consult a healthcare professional for a proper evaluation and guidance.
+            </p>
+            {% elif class_label == 'F' %}
+            <p>
+              Fusion of ventricular and normal beats occurs when an abnormal heartbeat originating in the ventricles coincides with a normal heartbeat from the atria. This fusion beat is a combination of the abnormal and normal electrical signals in the heart. In terms of health effects, fusion beats can indicate an underlying heart condition, such as ventricular arrhythmia, and may disrupt the heart's normal rhythm. It is important to consult with a healthcare professional if you experience fusion beats or any concerning symptoms to determine the cause and appropriate management.
+            </p>
+            {% elif class_label == 'M' %}
+            <p>
+              A missing beat, also known as a skipped beat or premature pause, refers to a temporary interruption in the heart's regular rhythm. It feels like a momentary pause or "skipped" sensation in the heartbeat. Missing beats can occur due to various reasons, including stress, caffeine, certain medications, or underlying heart conditions. In most cases, isolated skipped beats are harmless and common. However, if you experience frequent or concerning skipped beats, it's advisable to consult a healthcare professional to evaluate your heart's health and rule out any underlying issues.
+            </p>
+            {% elif class_label == 'N' %}
+            <p>
+              A normal beat refers to the regular rhythm of the heart, where it contracts and relaxes in a coordinated manner. It is the heart's way of pumping blood effectively throughout the body. Normal beats ensure a steady flow of oxygen and nutrients to the organs and tissues. Maintaining a normal heartbeat is crucial for overall heart health and proper functioning of the body. Any abnormalities in the normal beat, such as irregularities or disturbances, can indicate underlying heart conditions and may require medical attention to maintain optimal heart health.
+            </p>
+            {% elif class_label == 'Q' %}
+            <p>
+              An unclassifiable beat refers to a type of heartbeat that cannot be easily categorized or identified as a specific abnormality. It may not fit into the typical patterns of normal or abnormal heart rhythms. The effects of unclassifiable beats on heart health can vary depending on the underlying cause. In some cases, they may be harmless and temporary, while in others, they could indicate an underlying heart condition that requires further evaluation and treatment. It is important to consult with a healthcare professional if you experience unclassifiable beats or any concerning symptoms to determine the cause and appropriate management for your heart health.
+            </p>
+            {% elif class_label == 'V' %}
+            <p>
+              Premature ventricular contraction (PVC) is an abnormal heartbeat that originates in the ventricles, the lower chambers of the heart. It occurs when the ventricles contract earlier than expected, interrupting the normal heart rhythm. PVCs can feel like a skipped or extra beat and may be accompanied by palpitations or a fluttering sensation in the chest. While occasional PVCs are common and usually harmless, frequent or persistent PVCs can be a sign of an underlying heart condition and may require medical evaluation. It's important to consult a healthcare professional if you have concerns about PVCs or experience any symptoms to determine the cause and ensure the overall health of your heart.
+            </p>
+            {% endif %}
+          </p>
         </div>
       </div>
     </div>
@@ -62,26 +90,19 @@
 <div id="skills" class="background-alt">
     <h2 class="heading">Heart Abnormality Catagories</h2>
     <ul>
-        <li><a href="#fusion">F: Fusion of Ventricular and Normal Beat</a></li>
-        <li><a href="#fusion">M: Missing Beat</a></li>
-        <li><a href="#fusion">N: Normal</a></li>
-        <li><a href="#fusion">Q: Unclassifiable</a></li>
-        <li><a href="#fusion">S: Supraventricular Premature Beat</a></li>
-        <li><a href="#fusion">V: Premature Ventricular Contraction</a></li>
+        <li>F: Fusion of Ventricular and Normal Beat</li>
+        <li>M: Missing Beat</li>
+        <li>N: Normal</li>
+        <li>Q: Unclassifiable</li>
+        <li>S: Supraventricular Premature Beat</li>
+        <li>V: Premature Ventricular Contraction</li>
     </ul>
 </div>
 <!-- <div class="col-sm-2 top"> -->
 <!-- <span id="to-top">
     <i class="fa fa-chevron-up" aria-hidden="true"></i>
 </span> -->
-<div id="fusion">
-   <p><em><h2> F: Fusion of Ventricular and Normal Beat </h2></em> The heart beats in a specific pattern controlled by electrical signals. When there is a problem with the heart's electrical signals, it can cause an irregular heartbeat. In the case of a fusion of ventricular and normal beats, it means that there is a mix-up of the electrical signals from the upper and lower chambers of the heart. This can cause the heart to beat too fast or in an irregular way. This condition can lead to symptoms like feeling your heart racing, feeling dizzy or short of breath.</p>
-   <p><em><h2> M: Missing Beat</h2></em> A missing beat, also known as a "dropped beat" or "skipped beat," refers to a type of cardiac arrhythmia characterized by the intermittent delay or absence of a heartbeat. This occurs when the electrical signals that regulate the heart's rhythm are disrupted, causing the heart to momentarily stop before resuming its regular rhythm. Although a missing beat may be harmless and may not require any treatment, it can also be an indication of an underlying heart condition. Some individuals may experience a fluttering or thumping sensation in their chest, while others may not notice any symptoms at all. It is recommended to consult a doctor if one experiences this regularly or has other concerning symptoms.</p>
-   <p><em><h2> N: Normal</h2></em> A normal heartbeat rhythm and provides an efficient blood-pumping function to the body.</p>
-   <p><em><h2> Q: Unclassifiable</h2></em> electrocardiogram (ECG) reading is unclear,further evaluation  needed to ensure proper diagnosis</p>
-   <p><em><h2> S: Supraventricular Premature Beat</h2></em> If you experience frequent or persistent SPBs you should consult doctor, Because It may be the indication of atrial fibrillation(poor blood flow) or atrial flutter.</p>
-   <p><em><h2> V: Premature Ventricular Contaction</h2></em> They are common and can be caused by a variety of factors, including stress, caffeine, alcohol, and certain medications. In most cases, PVCs are benign and do not require treatment. However, in some cases they can be a sign of an underlying heart condition, such as heart disease or heart failure, and may require further evaluation and treatment.</p>
-</div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.min.js')}}"></script>
