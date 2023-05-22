@@ -18,8 +18,7 @@
         <div class="heading container" style="text-align: center;"><h2>Test Your ECG</h2></div>
         <div class="project shadow-large">
             <div class="row">
-                <div class="col-md-6"><h1>WELCOME</h1> </div>
-                <div class="col-md-6"> Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a> </div>
+                <div style="text-align: center;"><h1>WELCOME {{session.name}} </h1><strong> <a href="{{ url_for('logout') }}"> Logout</a></strong> </div> 
             </div>
             <div class="row">
         <div class="col-md-6">
@@ -31,7 +30,8 @@
         
         <div class="col-md-6" style="padding-top: 30px">
             
-                <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+                <form id="myForm" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="filename" id="filename">
                     <label class="file-upload" for="file">
                         <span>Image:</span>
                         <input type="file" name="file" id="file" accept="image/png" required/>
@@ -47,8 +47,39 @@
             </form>
             
           </div>
+          <script>
+                    // Get a reference to the file input element
+          const fileInput = document.getElementById('file');
+
+          // Add an event listener to the file input element
+          fileInput.addEventListener('change', function(event) {
+            // Get the selected file
+            const selectedFile = event.target.files[0];
+
+            // Create a FileReader object
+            const reader = new FileReader();
+
+            // Set the onload event handler
+            reader.onload = function(e) {
+              // Get the data URL of the selected image
+              const imageDataUrl = e.target.result;
+
+              // Update the source of the image element
+              const selectedImage = document.getElementById('selectedImage');
+              selectedImage.src = imageDataUrl;
+              document.getElementById('filename').value = selectedFile.name;
+            };
+
+            // Read the selected file as a data URL
+            reader.readAsDataURL(selectedFile);
+          });
+
+
+        </script>
         </div>
         <div style="text-align: center;">
+          <img id="selectedImage" src="" >
+
           <h1>
             {% if class_label %}
             <p>Predicted class label: {{ class_label }}</p>
